@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Namma Office</title>
+<meta name="description" content="Namma Sheet, Namma Write and Namma PDF for Windows, with Kannada typing built in. Try it free for 4 days.">
+<link rel="icon" href="assets/namma-office.svg" type="image/svg+xml">
+<style>
+:root {
+  --bg: #f3f3f3; --bg2: #eef1f6; --card: rgba(255,255,255,.78); --card-solid: #fff;
+  --stroke: rgba(0,0,0,.08); --text: #1a1a1a; --text2: #5d5d5d; --accent: #005fb8; --accent-hover: #0067c0;
+  --on-accent: #fff; --sheet: #107c41; --write: #1f63c6; --pdf: #c4262e; --shadow: 0 2px 6px rgba(0,0,0,.05), 0 12px 32px rgba(0,0,0,.06);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1c1c1c; --bg2: #202634; --card: rgba(255,255,255,.05); --card-solid: #2b2b2b;
+    --stroke: rgba(255,255,255,.08); --text: #fff; --text2: #c5c5c5; --accent: #60cdff; --accent-hover: #74d4ff;
+    --on-accent: #000; --sheet: #4cc38a; --write: #79a8ff; --pdf: #ff7b82; --shadow: 0 2px 6px rgba(0,0,0,.3), 0 12px 32px rgba(0,0,0,.25);
+  }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; color: var(--text); background: var(--bg);
+  background-image: radial-gradient(1200px 600px at 85% -10%, var(--bg2), transparent 70%), radial-gradient(900px 500px at -10% 10%, var(--bg2), transparent 70%);
+  font: 15px/1.55 "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+header { position: sticky; top: 0; z-index: 5; backdrop-filter: blur(24px) saturate(1.4); -webkit-backdrop-filter: blur(24px) saturate(1.4); background: color-mix(in srgb, var(--bg) 72%, transparent); border-bottom: 1px solid var(--stroke); }
+header .wrap { display: flex; align-items: center; gap: 24px; height: 56px; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 16px; color: var(--text); text-decoration: none; }
+.brand img { width: 28px; height: 28px; }
+nav { margin-left: auto; display: flex; gap: 20px; }
+nav a { color: var(--text2); text-decoration: none; font-size: 14px; }
+nav a:hover { color: var(--text); }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 9px 18px; border-radius: 6px; font-weight: 600; font-size: 14px; text-decoration: none; border: 1px solid var(--stroke); color: var(--text); background: var(--card); cursor: pointer; }
+.btn:hover { background: var(--card-solid); }
+.btn.primary { background: var(--accent); color: var(--on-accent); border-color: transparent; box-shadow: 0 1px 0 rgba(0,0,0,.15) inset, 0 4px 14px color-mix(in srgb, var(--accent) 35%, transparent); }
+.btn.primary:hover { background: var(--accent-hover); }
+.btn.big { padding: 13px 26px; font-size: 16px; border-radius: 8px; }
+.hero { padding: 88px 0 56px; text-align: center; }
+.hero .mark { width: 96px; height: 96px; filter: drop-shadow(0 10px 24px rgba(0,0,0,.18)); }
+h1 { font: 600 52px/1.1 "Segoe UI Variable Display", "Segoe UI", system-ui, sans-serif; letter-spacing: -.02em; margin: 24px 0 14px; }
+.hero p.lead { font-size: 19px; color: var(--text2); max-width: 640px; margin: 0 auto 30px; }
+.hero .actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.hero small { display: block; margin-top: 14px; color: var(--text2); font-size: 13px; }
+section { padding: 56px 0; }
+h2 { font: 600 32px/1.2 "Segoe UI Variable Display", "Segoe UI", system-ui, sans-serif; letter-spacing: -.01em; margin: 0 0 10px; }
+.sub { color: var(--text2); margin: 0 0 32px; font-size: 16px; max-width: 680px; }
+.apps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.card { background: var(--card); border: 1px solid var(--stroke); border-radius: 12px; padding: 24px; box-shadow: var(--shadow); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+.app { position: relative; overflow: hidden; scroll-margin-top: 80px; }
+.app::before { content: ""; position: absolute; inset: 0 0 auto; height: 3px; background: var(--c); }
+.app img { width: 56px; height: 56px; }
+.app h3 { margin: 14px 0 6px; font-size: 20px; font-weight: 600; }
+.app p { margin: 0 0 14px; color: var(--text2); }
+.app ul { margin: 0; padding-left: 18px; color: var(--text2); }
+.app li { margin: 4px 0; }
+.split { display: grid; grid-template-columns: 1.1fr 1fr; gap: 32px; align-items: center; }
+.kbd { display: inline-block; min-width: 26px; padding: 2px 7px; border: 1px solid var(--stroke); border-bottom-width: 2px; border-radius: 5px; background: var(--card-solid); font: 600 13px/1.4 "Cascadia Mono", Consolas, monospace; text-align: center; }
+.demo { font-size: 17px; }
+.demo .row { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--stroke); }
+.demo .row:last-child { border: 0; }
+.demo .kn { font-family: "Nirmala UI", "Noto Sans Kannada", "Tunga", sans-serif; font-size: 22px; margin-left: auto; }
+.checks { list-style: none; padding: 0; margin: 0; }
+.checks li { padding: 7px 0 7px 30px; position: relative; }
+.checks li::before { content: ""; position: absolute; left: 0; top: 10px; width: 18px; height: 18px; border-radius: 50%; background: var(--accent); -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='10'/%3E%3C/svg%3E"); }
+.checks li::after { content: ""; position: absolute; left: 6px; top: 13px; width: 4px; height: 8px; border: solid var(--on-accent); border-width: 0 2px 2px 0; transform: rotate(45deg); }
+.price { text-align: center; padding: 40px 32px; }
+.price .amount { font: 600 56px/1 "Segoe UI Variable Display", "Segoe UI", system-ui, sans-serif; letter-spacing: -.02em; margin: 8px 0; }
+.price .per { color: var(--text2); margin-bottom: 24px; }
+.price .checks { display: inline-block; text-align: left; margin-bottom: 28px; }
+.steps { counter-reset: s; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.step { counter-increment: s; }
+.step::before { content: counter(s); display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: var(--on-accent); font-weight: 600; margin-bottom: 12px; }
+.step h3 { margin: 0 0 6px; font-size: 17px; }
+.step p { margin: 0; color: var(--text2); }
+details { border-bottom: 1px solid var(--stroke); padding: 14px 0; }
+details summary { cursor: pointer; font-weight: 600; list-style: none; }
+details summary::after { content: "+"; float: right; color: var(--text2); font-weight: 400; }
+details[open] summary::after { content: "–"; }
+details p { color: var(--text2); margin: 10px 0 0; }
+footer { border-top: 1px solid var(--stroke); padding: 32px 0 48px; color: var(--text2); font-size: 13px; }
+footer .wrap { display: flex; gap: 24px; flex-wrap: wrap; justify-content: space-between; }
+@media (max-width: 860px) {
+  .apps, .steps, .split { grid-template-columns: 1fr; }
+  nav { display: none; }
+  h1 { font-size: 38px; }
+  .hero { padding-top: 56px; }
+  .wrap { padding: 0 16px; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="#"><img src="assets/namma-office.svg" alt="">Namma Office</a>
+    <nav><a href="#apps">Programs</a><a href="#kannada">Kannada</a><a href="#price">Price</a><a href="#contact">Contact</a></nav>
+    <a class="btn primary" href="https://github.com/HarshaVardhan3002/namma-office-downloads/releases/latest/download/NammaOffice-Setup.exe">Download</a>
+  </div>
+</header>
+
+<main>
+  <div class="hero wrap">
+    <img class="mark" src="assets/namma-office.svg" alt="Namma Office">
+    <h1>Your office programs,<br>with Kannada built in.</h1>
+    <p class="lead">Namma Sheet for spreadsheets, Namma Write for documents and Namma PDF for PDF files. Fast on old computers, works without the internet, and types Kannada the Baraha way.</p>
+    <div class="actions">
+      <a class="btn primary big" href="https://github.com/HarshaVardhan3002/namma-office-downloads/releases/latest/download/NammaOffice-Setup.exe">Download free trial</a>
+      <a class="btn big" href="#price">See the price</a>
+    </div>
+    <small>For Windows 10 and Windows 11 (64-bit). 4 days free, no card needed.</small>
+  </div>
+
+  <section id="apps">
+    <div class="wrap">
+      <h2>Three programs, one setup</h2>
+      <p class="sub">One download installs all three, plus the Namma Office home window that opens your files and keeps everything up to date.</p>
+      <div class="apps">
+        <article class="card app" id="sheet" style="--c: var(--sheet)">
+          <img src="assets/namma-sheet.svg" alt="">
+          <h3>Namma Sheet</h3>
+          <p>Spreadsheets for accounts, stock lists and reports.</p>
+          <ul><li>Opens and saves .xlsx, .xls, .ods and .csv</li><li>Formulas, charts, filters and sorting</li><li>Smooth with large sheets</li></ul>
+        </article>
+        <article class="card app" id="write" style="--c: var(--write)">
+          <img src="assets/namma-write.svg" alt="">
+          <h3>Namma Write</h3>
+          <p>Letters, notices and reports in Kannada and English.</p>
+          <ul><li>Opens and saves .docx, .odt and .rtf</li><li>Tables, pictures, headers and page numbers</li><li>Prints and saves as PDF</li></ul>
+        </article>
+        <article class="card app" id="pdf" style="--c: var(--pdf)">
+          <img src="assets/namma-pdf.svg" alt="">
+          <h3>Namma PDF</h3>
+          <p>Read, fill, sign and fix PDF files.</p>
+          <ul><li>Fill forms and add signatures</li><li>Merge, split and rotate pages</li><li>Finds text in scanned pages</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="kannada">
+    <div class="wrap split">
+      <div>
+        <h2>Type Kannada the way you already do</h2>
+        <p class="sub">Press <span class="kbd">F11</span> to switch between English and Kannada in any Namma Office program. Type in English letters and see Kannada, the Baraha way.</p>
+        <ul class="checks">
+          <li>Baraha-style phonetic typing, with the old and new key rules</li>
+          <li>Nudi and Inscript keyboards too</li>
+          <li>Change any key in the keyboard settings</li>
+          <li>Turns text from old Baraha and Nudi fonts into proper Unicode Kannada</li>
+          <li>Kannada fonts included, nothing else to install</li>
+        </ul>
+      </div>
+      <div class="card demo" aria-label="Typing examples">
+        <div class="row"><span class="kbd">namma</span><span class="kn">ನಮ್ಮ</span></div>
+        <div class="row"><span class="kbd">kannaDa</span><span class="kn">ಕನ್ನಡ</span></div>
+        <div class="row"><span class="kbd">beMgaLUru</span><span class="kn">ಬೆಂಗಳೂರು</span></div>
+        <div class="row"><span class="kbd">dhanyavaada</span><span class="kn">ಧನ್ಯವಾದ</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="price">
+    <div class="wrap">
+      <div class="card price">
+        <h2>One price. Yours for life.</h2>
+        <div class="amount">₹10,000</div>
+        <div class="per">per computer, paid once</div>
+        <ul class="checks">
+          <li>Namma Sheet, Namma Write and Namma PDF</li>
+          <li>All updates and bug fixes, for life</li>
+          <li>Help by email when you need it</li>
+          <li>No yearly fees, no account, no internet needed to work</li>
+        </ul>
+        <div><a class="btn primary big" href="#contact">Buy a licence</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <h2>How to buy</h2>
+      <p class="sub">It takes three short steps. We answer every email ourselves.</p>
+      <div class="steps">
+        <div class="card step"><h3>Install the free trial</h3><p>Download it above and use it for 4 days. Everything works.</p></div>
+        <div class="card step"><h3>Send us the form</h3><p>In any Namma Office program, open the menu and choose <b>Buy the full version</b>. Your email opens with your computer's Machine ID filled in. Press Send.</p></div>
+        <div class="card step"><h3>Get your key</h3><p>We send payment details and then your licence key. Paste it in <b>Enter licence key</b> and you are done.</p></div>
+      </div>
+      <p style="margin-top:24px">Questions first? Write to <a href="mailto:saiharshavardhan86@gmail.com?subject=Question%20about%20Namma%20Office">saiharshavardhan86@gmail.com</a>.</p>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <h2>Questions</h2>
+      <details><summary>Windows says "Windows protected your PC". Is it safe?</summary><p>Yes. Windows shows this for new programs it has not seen many times yet. Click <b>More info</b>, then <b>Run anyway</b>.</p></details>
+      <details><summary>What happens after the 4 days?</summary><p>The programs ask for a licence key. Your files stay on your computer and you can open them in any other program.</p></details>
+      <details><summary>Does it run on an old computer?</summary><p>Yes. Namma Office is made to start fast and stay smooth on older computers with Windows 10 or 11 (64-bit) and 4 GB of memory.</p></details>
+      <details><summary>How do updates work?</summary><p>Namma Office checks for a new version every few hours, downloads it quietly and installs it when you close the program. You can turn this off in the Updates window.</p></details>
+      <details><summary>Something is not working. What do I do?</summary><p>Choose <b>Report a problem</b> in the menu. It saves a report file to your Desktop and opens an email to us. Attach the file and press Send. The report never contains the text of your documents.</p></details>
+      <details><summary>I bought a new computer.</summary><p>Write to us with the new Machine ID and we will move your licence.</p></details>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Namma Office</span>
+    <span><a href="TERMS.txt">Licence terms</a> · Built on open source software; see the THIRD_PARTY folder in the installed program.</span>
+  </div>
+</footer>
+</body>
+</html>

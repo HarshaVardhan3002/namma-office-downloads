@@ -1,0 +1,30 @@
+NAMMA OFFICE LICENCE TERMS
+
+These terms are between you and Namma Office (the seller). Please read them. By installing or using Namma Office you agree to them.
+
+1. What you get
+Namma Office is Namma Sheet, Namma Write, Namma PDF and the Namma Office home window. You may install it and use it on one computer for each licence you buy.
+
+2. Free trial
+The trial works for 4 days from the first time you open any Namma Office program. After that, the programs ask for a licence key. Your files stay yours and you can still open them with other programs.
+
+3. Price and what it includes
+A licence costs 10,000 Indian rupees for one computer, paid once. It includes bug fixes and updates for that computer for as long as Namma Office is sold, and support by email. There are no yearly fees.
+
+4. Licence keys
+A licence key is made for one computer (its Machine ID). Do not share, sell or publish your key. If you replace your computer, write to us and we will help you move your licence.
+
+5. What you may not do
+You may not resell Namma Office, remove these terms, or try to get around the trial or the licence check.
+
+6. Open source parts
+Namma Office is built on open source software. Those parts are under their own licences (MIT, Apache 2.0, SIL Open Font License and others), listed in the THIRD_PARTY folder where Namma Office is installed. Nothing in these terms limits your rights under those licences.
+
+7. Your privacy
+Namma Office does not upload your documents. It keeps a log of what the programs do (buttons, commands, errors; never the text you type) on your computer only, so that we can find a bug when you report one. It is sent to us only when you choose "Report a problem" and send the email yourself. Namma Office checks the internet for updates; you can turn that off.
+
+8. No warranty
+We work hard to make Namma Office reliable, but it is provided as it is. Keep copies of important files. As far as the law allows, the seller is not liable for lost data or lost profit; our total liability is limited to the price you paid.
+
+9. Contact
+saiharshavardhan86@gmail.com

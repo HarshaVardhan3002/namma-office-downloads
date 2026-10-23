@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000" flood-opacity="0.28"/>
+    </filter>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000" flood-opacity="0.16"/>
+    </filter>
+    <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#eef1f4"/>
+    </linearGradient>
+    <linearGradient id="gs" x1="0" y1="0" x2="0.35" y2="1">
+      <stop offset="0" stop-color="#2fb36c"/>
+      <stop offset="1" stop-color="#0e6b3a"/>
+    </linearGradient>
+    <linearGradient id="gw" x1="0" y1="0" x2="0.35" y2="1">
+      <stop offset="0" stop-color="#4c8df6"/>
+      <stop offset="1" stop-color="#1a4fb5"/>
+    </linearGradient>
+    <linearGradient id="gp" x1="0" y1="0" x2="0.35" y2="1">
+      <stop offset="0" stop-color="#f0574f"/>
+      <stop offset="1" stop-color="#b3261e"/>
+    </linearGradient>
+
+  </defs>
+  <rect x="146" y="112" width="220" height="300" rx="44" fill="url(#gs)" transform="rotate(-16 256 440)" filter="url(#soft)"/>
+  <rect x="146" y="112" width="220" height="300" rx="44" fill="url(#gp)" transform="rotate(16 256 440)" filter="url(#soft)"/>
+  <rect x="146" y="112" width="220" height="300" rx="44" fill="url(#gw)" filter="url(#shadow)"/>
+  <rect x="147.5" y="113.5" width="217" height="297" rx="42.5" fill="none" stroke="#fff" stroke-opacity="0.25" stroke-width="3"/>
+  <path d="M200.40939597315435 328.0V196.0H227.16375838926174L272.78791946308723 268.7328859060403Q276.3315436241611 274.4026845637584 280.4953020134228 281.9771812080537Q284.65906040268453 289.551677852349 289.0 299.4738255033557Q288.2912751677852 289.90604026845637 287.9369127516778 280.6040268456376Q287.58255033557043 271.3020134228188 287.58255033557043 265.2778523489933V196.0H311.59060402684565V328.0H284.7476510067114L243.55302013422818 262.5315436241611Q240.0979865771812 257.0389261744966 237.04161073825503 251.63489932885903Q233.98523489932884 246.23087248322148 230.6187919463087 239.8523489932886Q227.2523489932886 233.4738255033557 222.8228187919463 224.88053691275167Q223.4429530201342 237.10604026845635 223.9744966442953 247.02818791946308Q224.50604026845636 256.9503355704698 224.50604026845636 262.4429530201342V328.0Z" fill="#fff"/>
+
+</svg>
